@@ -6,12 +6,32 @@ const initialForm = {
     id: null
 }
 
-const CrudForm = () => {
+const CrudForm = ({createData, updateData, dataToEdit, setDataToEdit}) => {
     const [form, setForm] = useState(initialForm);
 
-    const handleChange = () => {}
-    const handleReset = () => {}
-    const handleSubmit = () => {}
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+    const handleReset = (e) => {
+        setForm(initialForm);
+        setDataToEdit(null);
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(!form.name || !form.email){
+            alert("Complete all the required fields");
+            return;
+        }
+        if(form.id === null){
+            createData(form);
+        }else {
+            updateData(form);
+        }
+        handleReset();
+    }
 
     return ( 
         <div>
