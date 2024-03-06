@@ -9,6 +9,14 @@ const initialForm = {
 const CrudForm = ({createData, updateData, dataToEdit, setDataToEdit}) => {
     const [form, setForm] = useState(initialForm);
 
+    useEffect(() => {
+        if(dataToEdit){
+            setForm(dataToEdit);
+        } else{
+            setForm(initialForm)
+        }
+    }, [dataToEdit]);
+
     const handleChange = (e) => {
         setForm({
             ...form,
@@ -35,7 +43,7 @@ const CrudForm = ({createData, updateData, dataToEdit, setDataToEdit}) => {
 
     return ( 
         <div>
-            <h3>Add a register</h3>
+            <h3>{dataToEdit ? "Edit a register" : "Add a register"}</h3>
             <form onSubmit={handleSubmit}>
                 <input type="text" name='name' placeholder='Name' value={form.name} onChange={handleChange} />
                 <input type="text" name='email' placeholder='Email' value={form.email} onChange={handleChange} />
