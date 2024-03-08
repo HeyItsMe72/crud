@@ -29,7 +29,7 @@ export const helpHttp = () => {
     }
 
     const get = (url, options={}) => {
-        customFetch(url, options)
+        return customFetch(url, options)
     }
 
     const post = (url, options={}) => {
