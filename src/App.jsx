@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CrudApp from './components/CrudApp'
 import CrudApi from './components/CrudApi'
 import SongSearch from './components/SongSearch'
+import SelectsAnidados from './components/SelectsAnidados'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,8 @@ function App() {
       {/* <CrudApi/> */}
       <hr />
       <SongSearch/>
+      <hr />
+      <SelectsAnidados/>
     </>
   )
 }
