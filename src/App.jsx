@@ -3,6 +3,7 @@ import CrudApp from './components/CrudApp'
 import CrudApi from './components/CrudApi'
 import SongSearch from './components/SongSearch'
 import SelectsAnidados from './components/SelectsAnidados'
+import ContactForm from './components/ContactForm'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +17,9 @@ function App() {
       <hr />
       <SongSearch/>
       <hr />
-      <SelectsAnidados/>
+      {/* <SelectsAnidados/> */}
+      <hr />
+      <ContactForm/>
     </>
   )
 }
