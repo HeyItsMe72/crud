@@ -1,9 +1,11 @@
 import { useModal } from "../hooks/useModal"
 import Modal from "./Modal";
+import ModalPortal from "./ModalPortal";
 
 const Modals = () => {
     const [isOpenModal1, openModal1, closeModal1] = useModal(false);
     const [isOpenModal2, openModal2, closeModal2] = useModal(false);
+    const [isOpenPortalModal, openPortalModal, closePortalModal] = useModal(false);
 
     return(
         <div>
@@ -28,6 +30,13 @@ const Modals = () => {
                 </p>
                 <div>Image</div>
             </Modal>
+            <button onClick={openPortalModal}>Portal Modal</button>
+            <ModalPortal isOpen={isOpenPortalModal} closeModal={closePortalModal}>
+                <h3>Portal Modal</h3>
+                <p>Este modal es renderizado en un nodo diferente de donde corre app.
+                </p>
+                <div>Image</div>
+            </ModalPortal>
         </div>
     )
 }
